@@ -14,6 +14,8 @@ class Core(Configuration):
     DATABASES = values.DatabaseURLValue('sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'))
 
     INSTALLED_APPS = [
+        'habit_fantasy.base',
+
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -50,6 +52,9 @@ class Core(Configuration):
 
     # Static assets
     STATIC_URL = '/static/'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'assets'),
+    )
 
     # Internationalization
     LANGUAGE_CODE = 'en-us'
