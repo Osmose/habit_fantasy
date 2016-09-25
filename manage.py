@@ -4,14 +4,15 @@ import sys
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "habit_fantasy.settings")
+    os.environ.setdefault('DJANGO_CONFIGURATION', 'Development')
     try:
-        from django.core.management import execute_from_command_line
+        from configurations.management import execute_from_command_line
     except ImportError:
         # The above import may fail for some other reason. Ensure that the
         # issue is really that Django is missing to avoid masking other
         # exceptions on Python 2.
         try:
-            import django
+            import django  # NOQA
         except ImportError:
             raise ImportError(
                 "Couldn't import Django. Are you sure it's installed and "
