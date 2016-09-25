@@ -16,6 +16,8 @@ class Core(Configuration):
     INSTALLED_APPS = [
         'habit_fantasy.base',
 
+        'rest_framework',
+
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -49,6 +51,15 @@ class Core(Configuration):
             },
         },
     ]
+
+    # Django Rest Framework
+    REST_FRAMEWORK = {
+        'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+        'PAGE_SIZE': 10,
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework.authentication.SessionAuthentication',
+        ),
+    }
 
     # Static assets
     STATIC_URL = '/static/'
